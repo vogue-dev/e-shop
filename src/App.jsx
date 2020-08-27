@@ -4,7 +4,7 @@ import { Route } from 'react-router-dom';
 import './scss/app.scss';
 
 import { Header } from './components/index.js';
-import { Home, Cart } from './pages/index.js';
+import { Home, Cart, Error404 } from './pages/index.js';
 
 const App = () => {
 	return (
@@ -13,6 +13,7 @@ const App = () => {
 			<div className="content">
 				<Route path="/" component={Home} exact />
 				<Route path="/cart" component={Cart} exact />
+				<Route component={Error404} />
 			</div>
 		</div>
 	);

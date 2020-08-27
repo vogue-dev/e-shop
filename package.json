@@ -27,7 +27,7 @@
 		"eject": "react-scripts eject",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d build",
-		"server-fake": "npx json-server --watch public/db.json --port=3001"
+		"server-fake": "npx json-server --watch public/db.json --https://vogue-dev.github.io/e-shop"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
