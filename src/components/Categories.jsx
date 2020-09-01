@@ -1,11 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Categories = React.memo(function Categories({ activeCategoryIndex, categories, onClickCategory }) {
+const Categories = React.memo(function Categories({
+	activeCategoryIndex,
+	categories,
+	onClickCategory,
+}) {
 	return (
 		<div className="categories">
 			<ul>
-				<li className={activeCategoryIndex === null ? 'active' : ''} onClick={() => onClickCategory(null)}>
+				<li
+					className={activeCategoryIndex === null ? 'active' : ''}
+					onClick={() => onClickCategory(null)}>
 					Все
 				</li>
 				{categories &&

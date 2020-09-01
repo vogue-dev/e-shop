@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import './scss/app.scss';
 
@@ -11,9 +11,11 @@ const App = () => {
 		<div className="wrapper">
 			<Header />
 			<div className="content">
-				<Route path="/" component={Home} exact />
-				<Route path="/cart" component={Cart} exact />
-				<Route component={Error404} />
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/cart" component={Cart} />
+					<Route component={Error404} />
+				</Switch>
 			</div>
 		</div>
 	);
