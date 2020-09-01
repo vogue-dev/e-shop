@@ -9,33 +9,29 @@
 
 // server.listen(port);
 
-var express = require('express');
-var app = express();
-var PORT = process.env.PORT || 3000;
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const path = require('path');
 
-app.use(express.static(__dirname + '/public'));
+const app = express();
+app.use(cors());
+//Bodyparser Middleware
+app.use(bodyParser.json());
 
-app.get('/:date', function (req, res) {
-	var input = decodeURI(req.params.date);
-	var isNumber = /^\d+$/.test(input);
-	var unix, string;
-	if (isNumber) {
-		var t = new Date(parseInt(input));
-		string = t.toUTCString();
-		unix = input;
-	} else {
-		unix = Date.parse(input) || 'null';
-		string = Date.parse(input) ? input : 'null';
-	}
+app.use('/api/items', require('./routes/api/items'));
+app.use('/api/users', require('./routes/api/users'));
 
-	var output = {
-		string: string,
-		unix: unix,
-	};
+//Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+	//set static folder
+	app.use(express.static('client/build'));
 
-	res.json(output);
-});
+	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+	});
+}
 
-app.listen(PORT, function () {
-	console.log('server successfully started on port ' + PORT);
-});
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => console.log(`Server started on port ${port}`));
