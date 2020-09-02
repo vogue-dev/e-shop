@@ -3,11 +3,10 @@
 	"version": "1.0.0",
 	"description": "Simple json-base database to deploy to Heroku",
 	"main": "server.js",
-	"homepage": "https://e-shop-ua.herokuapp.com/",
 	"scripts": {
 		"start": "PROD=true node server.js",
 		"dev": "nodemon server.js",
-		"postinstall": "npm build"
+		"heroku-postbuild": "npm run build"
 	},
 	"proxy": "http://localhost:5000",
 	"keywords": [
