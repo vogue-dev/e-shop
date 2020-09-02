@@ -10,18 +10,23 @@
 // server.listen(port);
 
 const express = require('express');
-const favicon = require('express-favicon');
-const path = require('path');
-const port = process.env.PORT || 5000;
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const PORT = process.env.PORT || 5000;
+const bookDatabase = require('./connection');
 const app = express();
-app.use(favicon(__dirname + '/build/favicon.ico'));
-// the __dirname is the current directory from where the script is running
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'build')));
-app.get('/ping', function (req, res) {
-	return res.send('pong');
+
+app.use(morgan(process.env.NODE_ENV !== 'production' ? 'dev' : 'combined'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.get('/pizzas', (req, res) => {
+	bookDatabase('pizza')
+		.select('*')
+		.then((pizzas) => res.status(200).json(pizzas))
+		.catch((error) => {
+			res.status(500).json({ error: error.message, stack: error.stack });
+		});
 });
-app.get('/*', function (req, res) {
-	res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-app.listen(port);
+
+app.listen(PORT, () => console.log('Example app is listening!'));
