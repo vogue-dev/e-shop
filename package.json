@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "PROD=true node server.js",
 		"dev": "nodemon server.js",
-		"heroku-postbuild": "npm run build"
+		"heroku-postbuild": "react-scripts build"
 	},
 	"proxy": "http://localhost:5000",
 	"keywords": [
