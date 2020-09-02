@@ -12,12 +12,10 @@
 	],
 	"author": "Jesper Orb",
 	"license": "ISC",
-	"dependencies": {
-		"json-server": "^0.12.1"
-	},
 	"private": true,
-	"homepage": "https://my-shop-ua.herokuapp.com",
+	"homepage": "/",
 	"dependencies": {
+		"json-server": "^0.12.1",
 		"@testing-library/jest-dom": "^4.2.4",
 		"@testing-library/react": "^9.5.0",
 		"@testing-library/user-event": "^7.2.1",
@@ -39,15 +37,6 @@
 	"engines": {
 		"node": "12.x",
 		"npm": "6.x"
-	},
-	"scripts": {
-		"start": "node server.js",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
-		"server": "npx json-server --watch public/db.json --port=3001"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
