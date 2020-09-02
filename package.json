@@ -5,9 +5,11 @@
 	"main": "server.js",
 	"homepage": "https://e-shop-ua.herokuapp.com/",
 	"scripts": {
-		"start": "node server.js",
-		"dev": "nodemon server.js"
+		"start": "PROD=true node server.js",
+		"dev": "nodemon server.js",
+		"postinstall": "npm build"
 	},
+	"proxy": "http://localhost:5000",
 	"keywords": [
 		"json-server,heroku, node, REST API"
 	],
