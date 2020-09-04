@@ -2,7 +2,6 @@
 	"name": "ecommerce",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://my-shop-ua.herokuapp.com",
 	"main": "server.js",
 	"dependencies": {
 		"@testing-library/jest-dom": "^4.2.4",
