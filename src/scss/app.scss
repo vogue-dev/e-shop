@@ -7,6 +7,9 @@
 body {
 	background-color: $background;
 	padding: 50px 0;
+	@media (max-width: 799px) {
+		padding: 20px 0;
+	}
 }
 
 .wrapper {
@@ -16,6 +19,9 @@ body {
 	margin: 0px auto;
 	border-radius: 10px;
 	max-width: 1400px;
+	@media (max-width: 799px) {
+		width: calc(100vw - 40px);
+	}
 }
 
 .content {
