@@ -14,8 +14,8 @@ const Header = React.memo(function Header() {
 		<div className="header">
 			<div className="container">
 				<Logo />
-				<Link to="/cart">
-					<div className="header__cart">
+				<div className="header__cart">
+					<Link to="/cart">
 						<Button className="button--cart">
 							<span>{totalPrice} ₽</span>
 							<div className="button__delimiter"></div>
@@ -49,8 +49,8 @@ const Header = React.memo(function Header() {
 							</svg>
 							<span>{itemsCount}</span>
 						</Button>
-					</div>
-				</Link>
+					</Link>
+				</div>
 			</div>
 		</div>
 	);

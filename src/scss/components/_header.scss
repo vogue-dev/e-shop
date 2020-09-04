@@ -8,6 +8,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		@media (max-width: 799px) {
+			flex-direction: column;
+		}
 	}
 
 	&__logo {
@@ -27,6 +30,12 @@
 
 		p {
 			color: #7b7b7b;
+		}
+	}
+
+	&__cart {
+		@media (max-width: 799px) {
+			margin-top: 15px;
 		}
 	}
 }

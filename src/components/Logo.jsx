@@ -10,7 +10,7 @@ const Logo = React.memo(function Logo() {
 				<img width="38" src={logoImg} alt="Pizza logo" />
 				<div>
 					<h1>Pizza Hut</h1>
-					<p>самая вкусная и теплая пицца в мире</p>
+					<p>фигню не мутим!</p>
 				</div>
 			</div>
 		</Link>
