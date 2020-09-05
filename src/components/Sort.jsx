@@ -30,7 +30,10 @@ const Sort = React.memo(function Sort({ sortItems, activeSortType, onClickSortTy
 	return (
 		<div ref={sortRef} className="sort">
 			<div className="sort__label">
+				<b>Сортировка по:</b>
+				<span onClick={toggleSortPopupVisible}>{activeLabel}</span>
 				<svg
+					onClick={toggleSortPopupVisible}
 					className={isSortPopupVisible ? 'rotated' : null}
 					width="10"
 					height="6"
@@ -42,8 +45,6 @@ const Sort = React.memo(function Sort({ sortItems, activeSortType, onClickSortTy
 						fill="#2C2C2C"
 					/>
 				</svg>
-				<b>Сортировка по:</b>
-				<span onClick={toggleSortPopupVisible}>{activeLabel}</span>
 			</div>
 			{isSortPopupVisible && (
 				<div className="sort__popup">

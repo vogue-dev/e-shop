@@ -6,7 +6,7 @@ import { setCategory, setSortBy } from '../redux/actions/filters.js';
 import { fetchPizzas } from '../redux/actions/pizzas.js';
 import { addPizzaToCart } from '../redux/actions/cart.js';
 
-const categoryNames = ['Мясные', 'Вегетарианские', 'Мясные', 'Гриль', 'Острые'];
+const categoryNames = ['Мясные', 'С сыром', 'Гриль', 'Острые', 'Вегетарианские'];
 const sortItems = [
 	{ name: 'популярности', type: 'popular', order: 'desc' },
 	{ name: 'цене', type: 'price', order: 'desc' },
@@ -22,19 +22,28 @@ const Home = () => {
 
 	React.useEffect(() => {
 		dispatch(fetchPizzas(category, sortBy));
-	}, [category, sortBy]); // !!!
+	}, [category, sortBy, dispatch]); // !!!
 
-	const onSelectCategory = React.useCallback((index) => {
-		dispatch(setCategory(index));
-	}, []);
+	const onSelectCategory = React.useCallback(
+		(index) => {
+			dispatch(setCategory(index));
+		},
+		[dispatch]
+	);
 
-	const onSelectSortType = React.useCallback((type) => {
-		dispatch(setSortBy(type));
-	}, []);
+	const onSelectSortType = React.useCallback(
+		(type) => {
+			dispatch(setSortBy(type));
+		},
+		[dispatch]
+	);
 
-	const handleAddPizzaToCart = React.useCallback((obj) => {
-		dispatch(addPizzaToCart(obj));
-	}, []);
+	const handleAddPizzaToCart = React.useCallback(
+		(obj) => {
+			dispatch(addPizzaToCart(obj));
+		},
+		[dispatch]
+	);
 
 	return (
 		<div className="container">
