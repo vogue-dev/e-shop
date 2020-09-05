@@ -4,6 +4,7 @@
 	max-width: 100%;
 	overflow: auto;
 	flex: 1 1;
+	white-space: pre;
 	@media (max-width: 799px) {
 		margin-bottom: 30px;
 	}
