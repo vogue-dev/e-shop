@@ -9,6 +9,7 @@ const Sort = React.memo(function Sort({ sortItems, activeSortType, onClickSortTy
 	useEffect(() => {
 		document.body.addEventListener('click', handleOutsideClick);
 	}, []);
+
 	const toggleSortPopupVisible = () => {
 		setVisiblePopup(!isSortPopupVisible);
 	};
