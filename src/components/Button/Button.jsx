@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 
 const Button = ({ onClick, className, outline, children }) => {
-	console.log('test git');
 	return (
 		<button
 			onClick={onClick}
